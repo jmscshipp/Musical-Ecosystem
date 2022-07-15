@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 4380839678727801414}
   - component: {fileID: 7122108947337368543}
   - component: {fileID: 8448045754775861638}
-  - component: {fileID: 6698128574925520500}
+  - component: {fileID: 419428709349684454}
   m_Layer: 0
   m_Name: wall
   m_TagString: Untagged
@@ -238,7 +238,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6698128574925520500
+--- !u!114 &419428709349684454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,7 +247,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 3363370349777141417}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4c95bea4f93024596316ea204b3998, type: 3}
+  m_Script: {fileID: 11500000, guid: 945a30e45a81b0f40b798fa77d6cfaee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clips:
+  - {fileID: 8300000, guid: c5e4c20c7fae02641aefbff62f378a9c, type: 3}
+  - {fileID: 8300000, guid: 047381954967d774b8a2d4e65fb1b09e, type: 3}
+  - {fileID: 8300000, guid: a0d7f30a688ad914bba47f52c5deb5b9, type: 3}
+  - {fileID: 8300000, guid: 4d83628d31029e74281239c5b5320001, type: 3}
+  - {fileID: 8300000, guid: 6f10a10134a1b8f469ed7aca87cef689, type: 3}
+  - {fileID: 8300000, guid: ad71a93c6b3dab542830d7cb7df2ec3c, type: 3}
+  - {fileID: 8300000, guid: 340ef2828c773d94eba31276a77ed0f4, type: 3}
+  - {fileID: 8300000, guid: e675bbc29f71ba54d913a1f63e54dd7e, type: 3}
+  - {fileID: 8300000, guid: 9e73b616c1a54054cb677860396e75b4, type: 3}
+  - {fileID: 8300000, guid: 24f7675f27a850d42b8d8ab4ae303044, type: 3}
+  - {fileID: 8300000, guid: e7bae8e1cf3080b41bf1975234dc588e, type: 3}
+  - {fileID: 8300000, guid: 762dc0771fcf89647b9ccf68436df070, type: 3}
+  - {fileID: 8300000, guid: d06a3fbd7953b5d4f84f2eb6838ccff6, type: 3}
