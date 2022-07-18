@@ -22,19 +22,19 @@ public class PlayerController : MonoBehaviour
             Instantiate(objectPrefab, pos, Quaternion.identity);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (!slowMo)
-            {
-                Time.timeScale = 1.0f;
-                slowMo = false;
-            }
-            else
-            {
-                Time.timeScale = 0.7f;
-                slowMo = true;
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    if (!slowMo)
+        //    {
+        //        Time.timeScale = 1.0f;
+        //        slowMo = false;
+        //    }
+        //    else
+        //    {
+        //        Time.timeScale = 0.7f;
+        //        slowMo = true;
+        //    }
+        //}
     }
 
     

@@ -18,7 +18,7 @@ public class ObjectMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = movementDir * speed * Time.deltaTime;
+        rb.velocity = movementDir * speed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
