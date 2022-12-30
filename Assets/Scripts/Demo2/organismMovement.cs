@@ -25,7 +25,7 @@ public class organismMovement : MonoBehaviour
         transform.position += movementDir * moveSpeed * Time.deltaTime;
     }
 
-    void SetGoalPos(Vector3 newPos)
+    public void SetGoalPos(Vector3 newPos)
     {
         goalPos = newPos;
     }

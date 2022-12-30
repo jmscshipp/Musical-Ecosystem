@@ -6,6 +6,7 @@ TagManager:
   tags:
   - food
   - organism
+  - environment
   layers:
   - Default
   - TransparentFX
