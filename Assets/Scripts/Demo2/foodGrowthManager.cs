@@ -33,26 +33,30 @@ public class foodGrowthManager : MonoBehaviour
 
     IEnumerator SpawnFoodCluster(int clusterNum, int foodInClusterNum)
     {
-
         for (int i = 0; i < clusterNum; i++)
         {
             // find appropriate location for new cluster
             Vector2 clusterLocation = GetRandomPointInArena();
-            while (!ClusterSpawnVerified(clusterLocation))
-                clusterLocation = GetRandomPointInArena();
+            //while (!ClusterSpawnVerified(clusterLocation))
+            //    clusterLocation = GetRandomPointInArena();
             // add to ongoing list
-            clusterLocations.Add(clusterLocation);
-
+            //clusterLocations.Add(clusterLocation);
+    
             // spawn food morsels
             for (int j = 0; j < foodInClusterNum; j++)
             {
                 Vector2 foodLocation = new Vector2(clusterLocation.x + Random.Range(0f, clusterSpread), clusterLocation.y + Random.Range(0f, clusterSpread));
-                GameObject newFood = Instantiate(foodPrefab, foodLocation, Quaternion.identity);
+                GameObject newFood = Instantiate(foodPrefab, ArenaClamp(foodLocation), Quaternion.identity);
                 yield return new WaitForSeconds(0.1f);
             }
-
+    
             yield return new WaitForSeconds(0.5f);
         }
+    }
+    
+    Vector2 ArenaClamp(Vector2 originalPos)
+    {
+        return new Vector2(Mathf.Clamp(originalPos.x, arenaBoundLeft, arenaBoundRight), Mathf.Clamp(originalPos.y, arenaBoundBottom, arenaBoundTop));
     }
 
     bool ClusterSpawnVerified(Vector2 newClusterSpot)
@@ -64,10 +68,10 @@ public class foodGrowthManager : MonoBehaviour
         }
         return true;
     }
-
+    
     Vector2 GetRandomPointInArena()
     {
-        return new Vector2(Random.Range(arenaBoundLeft + clusterSpread, arenaBoundRight - clusterSpread), 
-            Random.Range(arenaBoundBottom + clusterSpread, arenaBoundTop - clusterSpread));
+        return new Vector2(Random.Range(arenaBoundLeft, arenaBoundRight), 
+            Random.Range(arenaBoundBottom, arenaBoundTop));
     }
 }

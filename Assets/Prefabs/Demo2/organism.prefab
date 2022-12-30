@@ -92,6 +92,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6820606272055169185}
   - component: {fileID: 6106651099981795760}
+  - component: {fileID: 6360455442419064220}
+  - component: {fileID: 4661522657432478272}
   m_Layer: 0
   m_Name: organism
   m_TagString: organism
@@ -130,3 +132,28 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &6360455442419064220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6820606272055169186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 091d07508b2858b45b5ebe8c75956947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+--- !u!114 &4661522657432478272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6820606272055169186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56697164af87fa4f9db1f6151e23f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
