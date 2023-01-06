@@ -7,7 +7,7 @@ public class food : MonoBehaviour
     public int minNutrients, maxNutrients;
     private int nutrients;
     private float scale;
-
+   
     // outline expand visual effect
     private Transform outline;
     private float outlineStartScale;

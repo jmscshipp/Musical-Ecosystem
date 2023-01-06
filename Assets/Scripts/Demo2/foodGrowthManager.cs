@@ -6,6 +6,7 @@ public class foodGrowthManager : MonoBehaviour
 {
     public GameObject foodPrefab;
     public int foodAvailable;
+    public activeFoodManager afm;
     List<Vector2> clusterLocations;
 
     // SETTINGS
@@ -14,6 +15,8 @@ public class foodGrowthManager : MonoBehaviour
     public float clusterDistance = 2f; // how far clusters need to be from each other
     public int clusterSizeMin, clusterSizeMax;
     public float clusterSpread = 1f; // how far food spawns from cluster center
+    public int minActiveFood = 5;
+    private bool gameStarted = false;
 
     void Start()
     {
@@ -28,7 +31,10 @@ public class foodGrowthManager : MonoBehaviour
 
     void Update()
     {
-        
+        if ((afm.activeFood.Count <= minActiveFood) && gameStarted)
+        {
+            StartCoroutine(SpawnFoodCluster(startClusterNum, Random.Range(clusterSizeMin, clusterSizeMax)));
+        }
     }
 
     IEnumerator SpawnFoodCluster(int clusterNum, int foodInClusterNum)
@@ -47,10 +53,12 @@ public class foodGrowthManager : MonoBehaviour
             {
                 Vector2 foodLocation = new Vector2(clusterLocation.x + Random.Range(0f, clusterSpread), clusterLocation.y + Random.Range(0f, clusterSpread));
                 GameObject newFood = Instantiate(foodPrefab, ArenaClamp(foodLocation), Quaternion.identity);
+                afm.GetActiveFood().Add(newFood.GetComponent<food>());
                 yield return new WaitForSeconds(0.1f);
             }
     
             yield return new WaitForSeconds(0.5f);
+            gameStarted = true;
         }
     }
     
