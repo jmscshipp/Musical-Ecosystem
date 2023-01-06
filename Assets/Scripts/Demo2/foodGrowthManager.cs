@@ -41,18 +41,13 @@ public class foodGrowthManager : MonoBehaviour
     {
         for (int i = 0; i < clusterNum; i++)
         {
-            // find appropriate location for new cluster
             Vector2 clusterLocation = GetRandomPointInArena();
-            //while (!ClusterSpawnVerified(clusterLocation))
-            //    clusterLocation = GetRandomPointInArena();
-            // add to ongoing list
-            //clusterLocations.Add(clusterLocation);
     
             // spawn food morsels
             for (int j = 0; j < foodInClusterNum; j++)
             {
                 Vector2 foodLocation = new Vector2(clusterLocation.x + Random.Range(0f, clusterSpread), clusterLocation.y + Random.Range(0f, clusterSpread));
-                GameObject newFood = Instantiate(foodPrefab, ArenaClamp(foodLocation), Quaternion.identity);
+                GameObject newFood = Instantiate(foodPrefab, EnvironmentClamp(foodLocation), Quaternion.identity);
                 afm.GetActiveFood().Add(newFood.GetComponent<food>());
                 yield return new WaitForSeconds(0.1f);
             }
@@ -62,7 +57,7 @@ public class foodGrowthManager : MonoBehaviour
         }
     }
     
-    Vector2 ArenaClamp(Vector2 originalPos)
+    Vector2 EnvironmentClamp(Vector2 originalPos)
     {
         return new Vector2(Mathf.Clamp(originalPos.x, arenaBoundLeft, arenaBoundRight), Mathf.Clamp(originalPos.y, arenaBoundBottom, arenaBoundTop));
     }

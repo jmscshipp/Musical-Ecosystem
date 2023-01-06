@@ -12,10 +12,13 @@ public class organismEating : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nearestFood = GameObject.FindGameObjectWithTag("food").GetComponent<food>();
-        nearestDist = Vector2.Distance(transform.position, nearestFood.transform.position);
         movement = GetComponent<organismMovement>();
         afm = GameObject.FindGameObjectWithTag("environment").GetComponent<activeFoodManager>();
+
+        // temporaryily assign dummy food
+        nearestFood = GameObject.FindGameObjectWithTag("food").GetComponent<food>();
+        nearestDist = Vector2.Distance(transform.position, nearestFood.transform.position);
+
     }
 
     // Update is called once per frame
@@ -38,11 +41,7 @@ public class organismEating : MonoBehaviour
                 }
             }
             if (nearestDist <= 0.15)
-            {
-                afm.activeFood.Remove(nearestFood);
-                Destroy(nearestFood.gameObject);
-                ResetNearestFood();
-            }
+                EatFood(nearestFood);
         }
     }
 
@@ -50,6 +49,14 @@ public class organismEating : MonoBehaviour
     {
         nearestFood = afm.activeFood[0];
         nearestDist = 10;
+    }
+
+    void EatFood(food foodToEat)
+    {
+        afm.activeFood.Remove(foodToEat);
+        afm.FoodEatenNotice(); // to update text display
+        Destroy(foodToEat.gameObject);
+        ResetNearestFood();
     }
 }
 
