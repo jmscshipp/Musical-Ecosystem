@@ -10,12 +10,6 @@ public class activeFoodManager : MonoBehaviour
     int foodEaten = 0;
     public Text foodEatenText;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public List<food> GetActiveFood()
     {
         return activeFood;

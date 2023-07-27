@@ -7,6 +7,7 @@ public class godControl : MonoBehaviour
 {
     Vector3 mousePos;
     public GameObject organismPrefab;
+    public GameObject lilGuyPrefab;
     private int organismCount;
     public Text organismCountText;
 
@@ -26,11 +27,23 @@ public class godControl : MonoBehaviour
             SpawnOrganism();
             organismCount++;
             organismCountText.text = organismCount.ToString();
+        }else if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            SpawnLilguy();
+            organismCount++;
+            organismCountText.text = organismCount.ToString();
         }
     }
 
     void SpawnOrganism()
     {
-        Instantiate(organismPrefab, mousePos, Quaternion.identity);
+        organismEating organism = Instantiate(organismPrefab, mousePos, Quaternion.identity).GetComponent<organismEating>();
+        organismManager.Instance.AddOrganism(organism);
+    }
+
+    void SpawnLilguy()
+    {
+        lilGuyEating lilGuy = Instantiate(lilGuyPrefab, mousePos, Quaternion.identity).GetComponent<lilGuyEating>();
+        // add to lilguy managaer here
     }
 }
